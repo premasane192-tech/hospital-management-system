@@ -1,0 +1,72 @@
+/* Care Plus - animated hero (scoped to .hero2) */
+.hero2{--muted:var(--ink-soft);--lt:var(--primary-lt);--mint:var(--accent-2);--mon:#0F2236;--shadow:var(--shadow-md);}
+.hero2 h1{font-size:clamp(2.8rem,6.2vw,5.2rem);line-height:1;letter-spacing:-.02em;margin:22px 0 18px}
+.hero2 h1 .h2-rot{height:1.05em}
+.hero2 .h2-rise{opacity:0;transform:translateY(24px);animation:h2-rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes h2-rise{to{opacity:1;transform:none}}
+.hero2 .h2-badge{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 16px 5px 6px;font-size:.82rem;color:var(--muted)}
+.hero2 .h2-badge b{background:var(--accent);color:#fff;border-radius:999px;padding:4px 12px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;position:relative}
+.hero2 .h2-badge b::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--accent);animation:h2-ping 2s ease-out infinite}
+@keyframes h2-ping{from{transform:scale(1);opacity:.7}to{transform:scale(1.5);opacity:0}}
+.hero2 h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2.8rem,6.2vw,5.2rem);line-height:1;letter-spacing:-.02em;margin:22px 0 18px}
+.hero2 .h2-rot{display:inline-block;position:relative;font-style:italic;color:var(--primary);height:1.05em;vertical-align:bottom;overflow:hidden;min-width:3.7em}
+.hero2 .h2-rot span{display:block;position:absolute;left:0;top:0;white-space:nowrap;opacity:0;transform:translateY(100%);transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.hero2 .h2-rot span.on{opacity:1;transform:none}
+.hero2 .h2-rot span.out{opacity:0;transform:translateY(-100%)}
+.hero2 .h2-under{display:block;height:6px;width:100%;max-width:520px;background:linear-gradient(90deg,var(--accent),#7CC4F5);border-radius:3px;transform-origin:left;animation:h2-grow 1s .9s cubic-bezier(.2,.8,.2,1) backwards;margin-top:8px}
+@keyframes h2-grow{from{transform:scaleX(0)}}
+.hero2 .h2-lead{font-size:1.1rem;line-height:1.65;color:var(--muted);max-width:540px;margin:20px 0 28px}
+.hero2 .h2-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero2 .h2-btn{display:inline-flex;align-items:center;gap:8px;font:600 .98rem 'DM Sans',sans-serif;padding:14px 26px;border-radius:12px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.hero2 .h2-btn .arr{transition:transform .2s}
+.hero2 .h2-btn:hover{transform:translateY(-2px)}
+.hero2 .h2-btn:hover .arr{transform:translateX(4px)}
+.hero2 .h2-btn-p{background:var(--primary);color:#fff;box-shadow:0 8px 20px rgba(29,111,184,.35);position:relative;overflow:hidden}
+.hero2 .h2-btn-p::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:h2-shine 3.6s 1.6s infinite}
+@keyframes h2-shine{0%{left:-60%}35%,100%{left:130%}}
+.hero2 .h2-btn-g{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.hero2 .h2-btn-g:hover{border-color:var(--primary);color:var(--primary)}
+.hero2 .h2-trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted);max-width:540px}
+.hero2 .h2-trust span::before{content:"✓";color:var(--mint);margin-right:7px;font-weight:700}
+.hero2 /* scene */
+.h2-stage{position:relative;max-width:540px;width:100%;margin:0 auto;padding:34px 0 30px;transform-style:preserve-3d;transition:transform .15s ease-out}
+.hero2 .h2-chip{position:absolute;background:var(--surface);border-radius:12px;padding:10px 16px;font-weight:600;font-size:.84rem;box-shadow:var(--shadow);display:flex;gap:9px;align-items:center;white-space:nowrap;animation:h2-bob 5s ease-in-out infinite}
+.hero2 .h2-c1{top:4px;right:-2%}
+.hero2 .h2-c2{bottom:150px;left:-4%;animation-delay:-1.7s}
+.hero2 .h2-c3{bottom:0;right:-3%;animation-delay:-3.2s}
+@keyframes h2-bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.hero2 /* live toast cycle */
+.h2-toast{position:absolute;left:50%;top:-2px;translate:-50% 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--mint);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow);font-size:.82rem;font-weight:600;display:flex;gap:9px;align-items:center;white-space:nowrap;opacity:0;transform:translateY(-14px);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.hero2 .h2-toast.show{opacity:1;transform:none}
+@media(max-width:560px){.hero2 .h2-c1,.hero2 .h2-c3{right:0}
+.hero2 .h2-c2{left:0}
+.hero2 .h2-chip{font-size:.74rem;padding:8px 12px}}
+@media (prefers-reduced-motion: reduce){.hero2 *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+
+@keyframes h2-fade{from{opacity:0;transform:scale(.94)}}
+.hero2 .h2-stage{animation:h2-fade .9s .3s cubic-bezier(.2,.7,.2,1) backwards}
+
+/* ---- medical rhythm monitor (replaces the circular scene) ---- */
+.hero2 .h2-ecg{position:relative;border-radius:20px;padding:16px 16px 14px;background:var(--surface);border:1px solid var(--line);box-shadow:0 28px 60px rgba(29,111,184,.22)}
+.hero2 .h2-ecg-head{display:flex;align-items:center;gap:8px;font:600 .7rem 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.hero2 .h2-ecg-bpm{margin-left:auto;display:flex;align-items:center;gap:8px}
+.hero2 .h2-ecg-bpm b{color:var(--primary);font-size:1.3rem;letter-spacing:0}
+.hero2 .h2-heart{width:20px;height:20px;fill:#E5484D;animation:h2-beat 1.25s ease-in-out infinite}
+@keyframes h2-beat{0%,100%{transform:scale(1)}12%{transform:scale(1.3)}24%{transform:scale(1)}36%{transform:scale(1.15)}50%{transform:scale(1)}}
+.hero2 .h2-live{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:h2-blink 1.2s infinite}
+@keyframes h2-blink{50%{opacity:.25;transform:scale(.7)}}
+.hero2 .h2-screen{position:relative;height:210px;overflow:hidden;border-radius:12px;background:linear-gradient(rgba(43,154,224,.14) 1px,transparent 1px) 0 0/100% 21px,linear-gradient(90deg,rgba(43,154,224,.14) 1px,transparent 1px) 0 0/21px 100%,var(--lt);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.hero2 .h2-track{position:absolute;inset:0;width:200%;animation:h2-scroll 7s linear infinite}
+.hero2 .h2-track svg{width:100%;height:100%;display:block}
+.hero2 .h2-track path{fill:none;stroke:var(--primary);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 2px 5px rgba(29,111,184,.35))}
+@keyframes h2-scroll{to{transform:translateX(-50%)}}
+.hero2 .h2-vitals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.hero2 .h2-vital{border-radius:12px;padding:10px 12px;background:var(--lt);border:1px solid var(--line)}
+.hero2 .h2-vital small{display:block;font:600 .6rem 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.hero2 .h2-vital strong{display:block;font:600 1.15rem 'JetBrains Mono',monospace;color:var(--ink);margin:2px 0 6px}
+.hero2 .h2-vital strong i{font-style:normal;font-size:.62rem;color:var(--muted);margin-left:3px}
+.hero2 .h2-bars{display:flex;align-items:flex-end;gap:3px;height:18px}
+.hero2 .h2-bars span{flex:1;height:100%;border-radius:2px;background:var(--accent);opacity:.9;transform-origin:bottom;animation:h2-bar 1.25s ease-in-out infinite;animation-delay:calc(var(--i)*.1s)}
+.hero2 .h2-v2 .h2-bars span{background:#2FAE7D}.hero2 .h2-v3 .h2-bars span{background:#E0A030}
+@keyframes h2-bar{0%,100%{transform:scaleY(.25)}20%{transform:scaleY(1)}40%{transform:scaleY(.45)}60%{transform:scaleY(.7)}}
+@media(max-width:560px){.hero2 .h2-screen{height:150px}.hero2 .h2-vital strong{font-size:.92rem}}
